@@ -1,0 +1,12 @@
+CREATE DATABASE Nom35;
+
+USE Nom35;
+
+CREATE TABLE Encuestados(
+   Nombre VARCHAR(50) NOT NULL,
+   Apellido VARCHAR(50) NOT NULL,
+   Departamento VARCHAR(50) NOT NULL,
+   NoEmpleado BIGINT PRIMARY KEY
+);
+
+DESCRIBE Encuestados;

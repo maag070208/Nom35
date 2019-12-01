@@ -1,5 +1,7 @@
 import { Router } from 'express';
 
+import {encuestadosController} from '../controllers/encuestadosController';
+
 class EncuestadosRoutes {
 
 	public router: Router = Router();
@@ -9,7 +11,7 @@ class EncuestadosRoutes {
 	}
 
 	config():void{
-		this.router.get('/',(req, res)=>res.send('Encuestados'));
+		this.router.get('/', encuestadosController.index);
 		
 	}
 }
