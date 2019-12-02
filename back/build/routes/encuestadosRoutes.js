@@ -8,7 +8,8 @@ class EncuestadosRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', encuestadosController_1.encuestadosController.index);
+        this.router.get('/', encuestadosController_1.encuestadosController.list);
+        this.router.post('/', encuestadosController_1.encuestadosController.insert);
     }
 }
 const encuestadosRoutes = new EncuestadosRoutes();

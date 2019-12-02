@@ -11,8 +11,8 @@ class EncuestadosRoutes {
 	}
 
 	config():void{
-		this.router.get('/', encuestadosController.index);
-		
+		this.router.get('/', encuestadosController.list);
+		this.router.post('/',encuestadosController.insert);
 	}
 }
 

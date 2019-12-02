@@ -4,11 +4,16 @@ import pool from '../database';
 
 class EncuestadosController {
 
-    public index(req: Request, res: Response) {    
+    public async list(req: Request, res: Response): Promise<void> {    
     
-        pool.query('DESCRIBE Encuestados');
-        res.json('encuestados');
+      const encuestados = await  pool.query('SELECT * FROM Encuestados');
+      res.json(encuestados);
+    }
 
+    public async insert(req: Request, res: Response): Promise<void> {    
+    
+      const result = await  pool.query('INSERT INTO Encuestados SET ?',[req.body]);
+      res.json({'message': 'Guardado'});
     }
 }
 export const encuestadosController = new EncuestadosController;
