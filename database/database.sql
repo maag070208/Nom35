@@ -2,11 +2,23 @@ CREATE DATABASE Nom35;
 
 USE Nom35;
 
-CREATE TABLE Encuestados(
-   Nombre VARCHAR(50) NOT NULL,
-   Apellido VARCHAR(50) NOT NULL,
-   Departamento VARCHAR(50) NOT NULL,
-   NoEmpleado BIGINT PRIMARY KEY
+CREATE TABLE Encuestados (
+	NoEncuestado INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	Departamento VARCHAR(50),
+	PuntosEncuesta INT
 );
-
-DESCRIBE Encuestados;
+CREATE TABLE Departamento (
+	NoEncuestado INT NOT NULL,
+	Departamento VARCHAR(50),
+	PuntosEncuesta INT
+);
+DELIMITER %
+ CREATE TRIGGER PuntosDepa
+     AFTER INSERT ON Encuestados
+     FOR EACH ROW
+     BEGIN
+     INSERT INTO Departamentos(Departamento,NoEncuestado, PuntosEncuesta)
+     VALUES (NEW.Departamento, NEW.NoEncuestado, NEW.PuntosEncuesta);
+     
+     END;
+%
