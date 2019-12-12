@@ -7,11 +7,13 @@ CREATE TABLE Encuestados (
 	Departamento VARCHAR(50),
 	PuntosEncuesta INT
 );
-CREATE TABLE Departamento (
+
+CREATE TABLE Departamentos (
 	NoEncuestado INT NOT NULL,
 	Departamento VARCHAR(50),
 	PuntosEncuesta INT
 );
+
 DELIMITER %
  CREATE TRIGGER PuntosDepa
      AFTER INSERT ON Encuestados
