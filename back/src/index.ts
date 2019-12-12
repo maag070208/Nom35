@@ -4,6 +4,8 @@ import cors from 'cors';
 
 import indexRoutes from './routes/indexRoutes';
 import encuestadosRoutes from './routes/encuestadosRoutes';
+import departamentosRoutes from './routes/departamentosRoutes'
+
 class Server {
 
     public app: Application;
@@ -25,6 +27,7 @@ class Server {
 	routes():void{
 		this.app.use('/', indexRoutes);
 		this.app.use('/encuestados', encuestadosRoutes);
+		this.app.use('/departamentos', departamentosRoutes);
 	}
 
 	start():void{
