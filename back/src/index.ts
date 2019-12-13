@@ -5,6 +5,7 @@ import cors from 'cors';
 import indexRoutes from './routes/indexRoutes';
 import encuestadosRoutes from './routes/encuestadosRoutes';
 import departamentosRoutes from './routes/departamentosRoutes'
+import puntosRoutes from './routes/puntosRoutes';
 
 class Server {
 
@@ -28,6 +29,7 @@ class Server {
 		this.app.use('/', indexRoutes);
 		this.app.use('/encuestados', encuestadosRoutes);
 		this.app.use('/departamentos', departamentosRoutes);
+		this.app.use('/puntos-total-departamento', puntosRoutes);
 	}
 
 	start():void{

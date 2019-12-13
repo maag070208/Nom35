@@ -24,3 +24,8 @@ DELIMITER %
      
      END;
 %
+SELECT Departamento, sum(PuntosEncuesta) as suma
+    FROM Departamentos
+    GROUP BY Departamento
+;
+
