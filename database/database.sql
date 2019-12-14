@@ -40,3 +40,11 @@ ALTER TABLE Departamentos AUTO_INCREMENT=1;
  select NoEncuestado,PuntosEncuesta 
  from Encuestados 
  WHERE PuntosEncuesta=(SELECT MAX(PuntosEncuesta) FROM Encuestados);
+
+SELECT Departamento,PuntosEncuesta
+FROM Departamentos 
+ORDER BY PuntosEncuesta DESC;
+
+SELECT Departamento,PuntosEncuesta,NoEncuestado 
+FROM Encuestados  
+ORDER BY PuntosEncuesta DESC;
