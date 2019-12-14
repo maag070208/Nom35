@@ -29,3 +29,14 @@ SELECT Departamento, sum(PuntosEncuesta) as suma
     GROUP BY Departamento
 ;
 
+ALTER TABLE Encuestados AUTO_INCREMENT=1;
+
+ALTER TABLE Departamentos AUTO_INCREMENT=1;
+
+ SELECT Departamento, SUM(PuntosEncuesta) 
+ FROM Encuestados 
+ GROUP BY Departamento;
+
+ select NoEncuestado,PuntosEncuesta 
+ from Encuestados 
+ WHERE PuntosEncuesta=(SELECT MAX(PuntosEncuesta) FROM Encuestados);

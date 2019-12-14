@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 import {encuestadosController} from '../controllers/encuestadosController';
 
-class EncuestadosRoutes {
+class EncuestadoRoutes {
 
 	public router: Router = Router();
 
@@ -12,10 +12,9 @@ class EncuestadosRoutes {
 
 	config():void{
 		this.router.get('/', encuestadosController.list);
-		this.router.post('/',encuestadosController.insert);
+		this.router.post('/', encuestadosController.insert);
 	}
 }
 
-const encuestadosRoutes = new EncuestadosRoutes();
-export default encuestadosRoutes.router;
-
+const encuestadoRoutes = new EncuestadoRoutes();
+export default encuestadoRoutes.router;

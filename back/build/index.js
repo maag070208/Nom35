@@ -8,8 +8,9 @@ const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const encuestadosRoutes_1 = __importDefault(require("./routes/encuestadosRoutes"));
-const departamentosRoutes_1 = __importDefault(require("./routes/departamentosRoutes"));
 const puntosRoutes_1 = __importDefault(require("./routes/puntosRoutes"));
+const max_minPuntosDepaRoutes_1 = __importDefault(require("./routes/max-minPuntosDepaRoutes"));
+const max_minPuntosEncRoutes_1 = __importDefault(require("./routes/max-minPuntosEncRoutes"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -26,8 +27,9 @@ class Server {
     routes() {
         this.app.use('/', indexRoutes_1.default);
         this.app.use('/encuestados', encuestadosRoutes_1.default);
-        this.app.use('/departamentos', departamentosRoutes_1.default);
         this.app.use('/puntos-total-departamento', puntosRoutes_1.default);
+        this.app.use('/max-min-departamento', max_minPuntosDepaRoutes_1.default);
+        this.app.use('/max-min-encuestado', max_minPuntosEncRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

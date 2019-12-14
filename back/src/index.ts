@@ -3,9 +3,10 @@ import morgan from 'morgan';
 import cors from 'cors';
 
 import indexRoutes from './routes/indexRoutes';
-import encuestadosRoutes from './routes/encuestadosRoutes';
-import departamentosRoutes from './routes/departamentosRoutes'
+import encuestadosRoutes from './routes/encuestadosRoutes'
 import puntosRoutes from './routes/puntosRoutes';
+import maxminPuntosDepaRoutes from './routes/max-minPuntosDepaRoutes';
+import maxminEncRoutes from './routes/max-minPuntosEncRoutes';
 
 class Server {
 
@@ -28,8 +29,9 @@ class Server {
 	routes():void{
 		this.app.use('/', indexRoutes);
 		this.app.use('/encuestados', encuestadosRoutes);
-		this.app.use('/departamentos', departamentosRoutes);
 		this.app.use('/puntos-total-departamento', puntosRoutes);
+		this.app.use('/max-min-departamento', maxminPuntosDepaRoutes);
+		this.app.use('/max-min-encuestado', maxminEncRoutes);
 	}
 
 	start():void{

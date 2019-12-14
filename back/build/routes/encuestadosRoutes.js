@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const encuestadosController_1 = require("../controllers/encuestadosController");
-class EncuestadosRoutes {
+class EncuestadoRoutes {
     constructor() {
         this.router = express_1.Router();
         this.config();
@@ -12,5 +12,5 @@ class EncuestadosRoutes {
         this.router.post('/', encuestadosController_1.encuestadosController.insert);
     }
 }
-const encuestadosRoutes = new EncuestadosRoutes();
-exports.default = encuestadosRoutes.router;
+const encuestadoRoutes = new EncuestadoRoutes();
+exports.default = encuestadoRoutes.router;
