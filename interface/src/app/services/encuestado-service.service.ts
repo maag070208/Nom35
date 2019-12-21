@@ -12,6 +12,8 @@ export class EncuestadoServiceService {
 	API_MAXMIN_ENCUESTADO = "http://localhost:3000/max-min-encuestado";
 	API_MAXMIN_DEPARTAMENTO = "http://localhost:3000/max-min-departamento";
 	API_PUNTOS_DEPARTAMENTO = "http://localhost:3000/puntos-total-departamento";
+  API_DEPARTAMENTO = "http://localhost:3000/departamentos";
+
 
   constructor(private http: HttpClient) { }
 
@@ -33,6 +35,9 @@ export class EncuestadoServiceService {
   }
   getPuntosDepa(){
   	return this.http.get(`${this.API_PUNTOS_DEPARTAMENTO}`);
+  }
+  getDepa(){
+    return this.http.get(`${this.API_DEPARTAMENTO}`);
   }
 
 }

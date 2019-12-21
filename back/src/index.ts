@@ -7,6 +7,7 @@ import encuestadosRoutes from './routes/encuestadosRoutes'
 import puntosRoutes from './routes/puntosRoutes';
 import maxminPuntosDepaRoutes from './routes/max-minPuntosDepaRoutes';
 import maxminEncRoutes from './routes/max-minPuntosEncRoutes';
+import departamentosRoutes from './routes/departamentosRoutes';
 
 class Server {
 
@@ -32,6 +33,7 @@ class Server {
 		this.app.use('/puntos-total-departamento', puntosRoutes);
 		this.app.use('/max-min-departamento', maxminPuntosDepaRoutes);
 		this.app.use('/max-min-encuestado', maxminEncRoutes);
+		this.app.use('/departamentos', departamentosRoutes);
 	}
 
 	start():void{

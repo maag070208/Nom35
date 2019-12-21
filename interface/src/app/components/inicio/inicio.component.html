@@ -1,3 +1,6 @@
-<h3 align="center">
-	Selecciona tu departamento
-</h3>
+<div *ngFor="let depa of depas" class="card" style="width: 18rem;">
+  <img class="card-img-top" [src]="depa.Imagen" alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text">{{depa.Descripcion}}</p>
+  </div>
+</div>
