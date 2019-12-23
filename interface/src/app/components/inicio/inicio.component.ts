@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import {EncuestadoServiceService} from '../../services/encuestado-service.service';
 import {Encuestados} from 'src/app/models/encuestados'; 
 
@@ -11,7 +11,7 @@ import {Encuestados} from 'src/app/models/encuestados';
 
 
 export class InicioComponent implements OnInit {
-
+    //@HostBinding('class') classes = 'row';
 	depas: any = [];
 
   constructor(private encuestadosService: EncuestadoServiceService) { }
