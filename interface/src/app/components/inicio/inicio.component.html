@@ -1,14 +1,24 @@
  <h2>Selecciona tu departamento</h2>
 <br>
+
+<form>
+  
 <div class="row">
  <div class="col-md-4" *ngFor="let depa of depas">
+
   <div class="card text-center">
+
     <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-      {{depa.Nombre}}
-      <button class="btn btn-primary">
+      {{depa.Nombre}} 
+
+      <button class="btn btn-primary" [routerLink]="['/encuesta/page1']">
        Click
       </button>
+
     </div>
+
+    <input type="text" name="departamento" id="departamento" value="{{depa.Nombre}}">
+
     <img class="card-img-top" [src]="depa.Imagen">
     <div class="card-body">
       <p>{{depa.Descripcion}}</p>
@@ -16,3 +26,5 @@
   </div>
 </div>
 </div>
+<h1>{{depa.nombre}}</h1>
+</form>

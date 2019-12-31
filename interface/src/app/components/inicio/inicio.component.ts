@@ -1,7 +1,7 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding, Input } from '@angular/core';
 import {EncuestadoServiceService} from '../../services/encuestado-service.service';
 import {Encuestados} from 'src/app/models/encuestados'; 
-
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
@@ -14,7 +14,12 @@ export class InicioComponent implements OnInit {
     //@HostBinding('class') classes = 'row';
 	depas: any = [];
 
-  constructor(private encuestadosService: EncuestadoServiceService) { }
+
+  constructor(
+    private encuestadosService: EncuestadoServiceService,
+    private router: Router
+    ) { }
+
 
   ngOnInit() {
   	this.getEncuestados();
@@ -29,5 +34,8 @@ export class InicioComponent implements OnInit {
   		err => console.log(err)
   	);
   }
+
+  
+
 
 }
