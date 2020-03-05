@@ -16,8 +16,14 @@ const database_1 = __importDefault(require("../database"));
 class DepartamentosController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const encuestados = yield database_1.default.query('SELECT * FROM ListaDepartamentos');
+            const encuestados = yield database_1.default.query('SELECT * FROM listaDepartamentos');
             res.json(encuestados);
+        });
+    }
+    insert(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield database_1.default.query('INSERT INTO listaDepartamentoss SET ?', [req.body]);
+            res.json({ 'message': 'Departamento Guardado' });
         });
     }
 }

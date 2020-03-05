@@ -1,0 +1,28 @@
+<h1 class="titulo" align="center">Selecciona tu departamento</h1>
+<br>
+
+<form>
+  
+<div class="row">
+ <div class="col-md-4" *ngFor="let depas of depa">
+
+  <div class="card text-center">
+
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+      {{depas.NombreDepa}} 
+
+      <button class="btn btn-primary" onclick="createDepa()" [routerLink]="['']">
+       Click
+      </button>
+
+    </div>
+
+    <input type="text" name="NombreDepa" id="NombreDepa" >
+    <input type="text" name="Imagen" id="Imagen" >
+
+    <img class="card-img-top imagen"  [src]="depas.Imagen">
+    
+  </div>
+</div>
+</div>
+</form>

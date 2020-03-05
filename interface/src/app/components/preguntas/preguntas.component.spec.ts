@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MaxminDepaComponent } from './maxmin-depa.component';
+import { PreguntasComponent } from './preguntas.component';
 
-describe('MaxminDepaComponent', () => {
-  let component: MaxminDepaComponent;
-  let fixture: ComponentFixture<MaxminDepaComponent>;
+describe('PreguntasComponent', () => {
+  let component: PreguntasComponent;
+  let fixture: ComponentFixture<PreguntasComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MaxminDepaComponent ]
+      declarations: [ PreguntasComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MaxminDepaComponent);
+    fixture = TestBed.createComponent(PreguntasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,35 +1,44 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 //services
-import {EncuestadoServiceService} from './services/encuestado-service.service';
 
+import { BsModalService } from 'ngx-bootstrap/modal';
+import {EncuestadoService} from './services/encuestado.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Parte1Component } from './components/encuesta/parte1/parte1.component';
-import { MaxminDepaComponent } from './components/maxmin-depa/maxmin-depa.component';
-import { MaxminEncComponent } from './components/maxmin-enc/maxmin-enc.component';
-import { PuntosDepaComponent } from './components/puntos-depa/puntos-depa.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TestComponent } from './components/test/test.component';
+import { Test2Component } from './components/test2/test2.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { PreguntasComponent } from './components/preguntas/preguntas.component';
+import { DepartamentosComponent } from './components/departamentos/departamentos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Parte1Component,
-    MaxminDepaComponent,
-    MaxminEncComponent,
-    PuntosDepaComponent,
-    InicioComponent
+    TestComponent,
+    Test2Component,
+    InicioComponent,
+    PreguntasComponent,
+    DepartamentosComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot()
+    
   ],
   providers: [
-  EncuestadoServiceService
+    EncuestadoService,
+    FormBuilder,
+    BsModalService
   ],
   bootstrap: [AppComponent]
 })

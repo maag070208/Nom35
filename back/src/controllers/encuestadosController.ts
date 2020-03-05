@@ -9,7 +9,6 @@ class EncuestadosController {
       const encuestados = await  pool.query('SELECT * FROM Encuestados');
       res.json(encuestados);
     }
-
     public async insert(req: Request, res: Response): Promise<void> {    
     
      const result = await  pool.query('INSERT INTO Encuestados SET ?',[req.body]);
