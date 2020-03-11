@@ -2,8 +2,6 @@ import { Component, OnInit,TemplateRef  } from '@angular/core';
 import {Router} from '@angular/router';
 import { EncuestadoService } from './../../services/encuestado.service';
 import { Encuestados } from './../../models/encuestados/encuestados';
-import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-departamentos',
@@ -12,18 +10,17 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 
 export class DepartamentosComponent implements OnInit {
- //@HostBinding('class') classes = 'row';
- form: FormGroup;
- modalRef: BsModalRef;
+
+ encuestado : Encuestados = {
+   NoEncuestado: null,
+   Departamento: '' ,
+   PuntosEncuesta:0
+  };
+  public name: string;
  depa: any = [];
- departamento: any = {NombreDepa: '', Imagen: ''};
- modalCallback: () =>void;
 
   constructor(
-    private encuestadosService: EncuestadoService,
-    private router: Router,
-    private fb: FormBuilder,
-    private modalService: BsModalService,
+    private encuestadosService: EncuestadoService, private router: Router
   ) { }
 
   ngOnInit() {
@@ -41,26 +38,17 @@ export class DepartamentosComponent implements OnInit {
   	);
   }
 
-  private updateDepa(){
-    this.form.setValue({
-      NombreDepa: this.departamento.NombreDepa,
-      Imagen: this.departamento.Imagen
-    });
+  InsertDepa(){
+    this.encuestadosService.insertEncuestado(this.encuestado)
+    .subscribe(
+      res=>{
+        console.log(res);
+        this.router.navigate(['/test']);
+      },
+      err => console.log(err)
+    )
   }
 
-  private addDepas(template){
-    this.departamento = {NombreDepa: '', Imagen: ''};
-    this.updateDepa();
-    this.modalCallback= this.createDepa.bind(this);
-    this.modalRef= this.modalService.show(template);
-  }
+ 
 
-   createDepa(){
-    const newDepa ={
-      NombreDepa: this.form.get('NombreDepa').value,
-      Imagen: this.form.get('Imagen').value
-    };
-    this.modalRef.hide();
-    this.encuestadosService.createDepa(newDepa).subscribe(this.getDepas);
-  }
 }

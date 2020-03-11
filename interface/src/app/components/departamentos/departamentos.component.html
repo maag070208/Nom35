@@ -1,25 +1,27 @@
 <h1 class="titulo" align="center">Selecciona tu departamento</h1>
 <br>
 
-<form>
+<form action="" > 
   
 <div class="row">
+
  <div class="col-md-4" *ngFor="let depas of depa">
 
-  <div class="card text-center">
+  <div class="card text-center ">
 
-    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center form-group">
       {{depas.NombreDepa}} 
 
-      <button class="btn btn-primary" onclick="createDepa()" [routerLink]="['']">
+      <button class="btn btn-primary" (click)="InsertDepa()">
        Click
       </button>
 
     </div>
 
-    <input type="text" name="NombreDepa" id="NombreDepa" >
-    <input type="text" name="Imagen" id="Imagen" >
 
+  <input  class="form-group" type="text" name="departamentoHmtl"   value="{{depas.NombreDepa}}">
+
+   
     <img class="card-img-top imagen"  [src]="depas.Imagen">
     
   </div>
